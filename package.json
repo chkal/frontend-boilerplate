@@ -1,0 +1,11 @@
+{
+  "name": "es6-webapp",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "gulp": "3.9.0",
+    "gulp-uglify": "1.4.0",
+    "gulp-babel": "5.2.1",
+    "gulp-sourcemaps": "1.5.2"
+  }
+}
