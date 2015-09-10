@@ -1,14 +1,17 @@
 var gulp = require("gulp");
+var argv = require('yargs').argv;
 var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
 var rename = require("gulp-rename");
 
+var appname = "es6-webapp";
+
 var paths = {
-  js: "./src/main/webapp/**/*.js",
+  js: "./src/main/webapp/**/*.es6.js",
   css: "./src/main/webapp/**/*.less",
-  out: "./target/es6-webapp/"
+  dest: argv.dest ? argv.dest : ( "./target/" + appname)
 };
 
 gulp.task("js", function () {
@@ -20,13 +23,13 @@ gulp.task("js", function () {
     }))
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.out));
+    .pipe(gulp.dest(paths.dest));
 });
 
 gulp.task("css", function () {
   gulp.src(paths.css)
     .pipe(less())
-    .pipe(gulp.dest(paths.out));
+    .pipe(gulp.dest(paths.dest));
 });
 
 gulp.task("watch", function () {

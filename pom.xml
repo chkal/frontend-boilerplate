@@ -10,6 +10,11 @@
 
   <name>es6-webapp</name>
 
+  <properties>
+    <!-- Will be overwritten in a special m2e profile -->
+    <gulp.dest>${project.build.directory}/${project.build.finalName}/</gulp.dest>
+  </properties>
+
   <build>
     <finalName>es6-webapp</finalName>
 
@@ -53,7 +58,7 @@
               <goal>gulp</goal>
             </goals>
             <configuration>
-              <arguments>default</arguments>
+              <arguments>default --dest ${gulp.dest}</arguments>
             </configuration>
           </execution>
         </executions>
@@ -62,6 +67,20 @@
     </plugins>
 
   </build>
+
+  <profiles>
+    <profile>
+      <id>m2e</id>
+      <activation>
+        <property>
+          <name>m2e.version</name>
+        </property>
+      </activation>
+      <properties>
+        <gulp.dest>${project.build.directory}/m2e-wtp/web-resources/</gulp.dest>
+      </properties>
+    </profile>
+  </profiles>
 
   <dependencies>
 
