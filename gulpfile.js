@@ -6,12 +6,13 @@ var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
 var rename = require("gulp-rename");
 
-var appname = "gulp-boilerplate";
+if (!argv.dest) {
+  throw Error("Please use --dest to set a target directory");
+}
 
 var paths = {
   js: "./src/main/webapp/**/*.es6.js",
-  css: "./src/main/webapp/**/*.less",
-  dest: argv.dest ? argv.dest : ( "./target/" + appname)
+  css: "./src/main/webapp/**/*.less"
 };
 
 gulp.task("js", function () {
@@ -23,13 +24,13 @@ gulp.task("js", function () {
     }))
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.dest));
+    .pipe(gulp.dest(argv.dest));
 });
 
 gulp.task("css", function () {
   gulp.src(paths.css)
     .pipe(less())
-    .pipe(gulp.dest(paths.dest));
+    .pipe(gulp.dest(argv.dest));
 });
 
 gulp.task("watch", function () {
