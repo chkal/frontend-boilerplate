@@ -11,7 +11,7 @@
   <name>gulp-boilerplate</name>
 
   <properties>
-    <!-- Will be overwritten in a special m2e profile -->
+    <!-- Will be changed by m2e profile if running from Eclipse -->
     <gulp.dest>${project.build.directory}/${project.build.finalName}/</gulp.dest>
   </properties>
 
@@ -42,7 +42,6 @@
             <configuration>
               <nodeVersion>v0.12.7</nodeVersion>
               <npmVersion>1.4.9</npmVersion>
-              <downloadRoot>http://localhost/~ck/node/</downloadRoot>
             </configuration>
           </execution>
           <execution>
