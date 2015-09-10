@@ -6,7 +6,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
 var rename = require("gulp-rename");
 
-var appname = "es6-webapp";
+var appname = "gulp-boilerplate";
 
 var paths = {
   js: "./src/main/webapp/**/*.es6.js",
@@ -38,4 +38,3 @@ gulp.task("watch", function () {
 });
 
 gulp.task("default", ["js", "css"]);
-
