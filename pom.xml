@@ -33,8 +33,6 @@
           <installDirectory>${project.build.directory}/node</installDirectory>
         </configuration>
         <executions>
-
-          <!-- install node.js + npm -->
           <execution>
             <id>install-node-npm</id>
             <goals>
@@ -46,19 +44,12 @@
               <downloadRoot>http://localhost/~ck/node/</downloadRoot>
             </configuration>
           </execution>
-
-          <!-- install npm dependencies -->
           <execution>
             <id>npm-install</id>
             <goals>
               <goal>npm</goal>
             </goals>
-            <configuration>
-              <arguments>install</arguments>
-            </configuration>
           </execution>
-
-          <!-- run gulp -->
           <execution>
             <id>gulp</id>
             <goals>
@@ -68,9 +59,7 @@
               <arguments>default</arguments>
             </configuration>
           </execution>
-
         </executions>
-
       </plugin>
 
     </plugins>
