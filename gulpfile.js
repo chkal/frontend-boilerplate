@@ -5,6 +5,7 @@ var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
 var rename = require("gulp-rename");
+var notify = require("gulp-notify");
 
 if (!argv.dest) {
   throw Error("Please use --dest to set a target directory");
@@ -15,10 +16,19 @@ var paths = {
   css: "./src/main/webapp/**/*.less"
 };
 
+function errorHandler(error) {
+  console.log(error.toString());
+  notify(error.toString());
+  this.emit('end');
+}
+
 gulp.task("js", function () {
   gulp.src(paths.js)
     .pipe(sourcemaps.init())
     .pipe(babel())
+    .on("error", notify.onError(function (error) {
+      return error.message;
+    }))
     .pipe(rename(function (path) {
       path.basename = path.basename.replace(/\.es6/, "");
     }))
@@ -30,6 +40,9 @@ gulp.task("js", function () {
 gulp.task("css", function () {
   gulp.src(paths.css)
     .pipe(less())
+    .on("error", notify.onError(function (error) {
+      return error.message;
+    }))
     .pipe(gulp.dest(argv.dest));
 });
 
