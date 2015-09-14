@@ -14,9 +14,9 @@ if (!argv.dest) {
 }
 
 var paths = {
+  js: "./src/main/javascript/**/*.js",
   jsPage: "./src/main/javascript/page/**/*.js",
-  jsLib: "./src/main/javascript/lib/**/*.js",
-  css: "./src/main/webapp/**/*.less"
+  less: "./src/main/less/**/*.less"
 };
 
 function errorHandler(error) {
@@ -49,19 +49,18 @@ gulp.task("js", function () {
     .pipe(gulp.dest(argv.dest + "/js"));
 });
 
-gulp.task("css", function () {
-  gulp.src(paths.css)
+gulp.task("less", function () {
+  gulp.src(paths.less)
     .pipe(less())
     .on("error", notify.onError(function (error) {
       return error.message;
     }))
-    .pipe(gulp.dest(argv.dest));
+    .pipe(gulp.dest(argv.dest + "/css"));
 });
 
 gulp.task("watch", function () {
-  gulp.watch(paths.jsPage, ["js"]);
-  gulp.watch(paths.jsLib, ["js"]);
-  gulp.watch(paths.css, ["css"]);
+  gulp.watch(paths.js, ["js"]);
+  gulp.watch(paths.less, ["less"]);
 });
 
-gulp.task("default", ["js", "css"]);
+gulp.task("default", ["js", "less"]);
