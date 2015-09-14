@@ -9,6 +9,7 @@ var notify = require("gulp-notify");
 var named = require("vinyl-named");
 var webpackstream = require("webpack-stream");
 var path = require("path");
+var plumber = require("gulp-plumber");
 
 if (!argv.dest) {
   throw Error("Please use --dest to set a target directory");
@@ -28,6 +29,7 @@ function errorHandler(error) {
 
 gulp.task("js", function () {
   gulp.src(paths.jsPage)
+    .pipe(plumber())
     .pipe(named())
     .pipe(webpackstream({
       output: {
@@ -41,9 +43,6 @@ gulp.task("js", function () {
         }]
       }
     }))
-    .on("error", notify.onError(function (error) {
-      return error.message;
-    }))
     .pipe(rename(function (path) {
       path.basename = path.basename.replace(/\.es6/, "");
     }))
@@ -52,10 +51,8 @@ gulp.task("js", function () {
 
 gulp.task("less", function () {
   gulp.src(paths.less)
+    .pipe(plumber(errorHandler))
     .pipe(less())
-    .on("error", notify.onError(function (error) {
-      return error.message;
-    }))
     .pipe(gulp.dest(path.join(argv.dest, "css")));
 });
 

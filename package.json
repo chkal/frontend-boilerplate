@@ -13,7 +13,8 @@
     "gulp-notify": "2.2.0",
     "webpack": "1.12.1",
     "webpack-stream": "2.1.0",
-    "vinyl-named" : "1.1.0",
-    "babel-loader": "5.3.2"
+    "vinyl-named": "1.1.0",
+    "babel-loader": "5.3.2",
+    "gulp-plumber": "~1.0.1"
   }
 }
