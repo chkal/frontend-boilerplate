@@ -1,14 +1,4 @@
-class Person {
-
-  constructor(name = "NoName") {
-    this.name = name;
-  }
-
-  greet() {
-    return `Hello ${this.name}`;
-  }
-
-}
+import Person from "../lib/person.js";
 
 const person = new Person("Christian");
 
