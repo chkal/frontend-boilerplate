@@ -59,6 +59,12 @@
               <arguments>default --dest ${gulp.dest}</arguments>
             </configuration>
           </execution>
+          <execution>
+            <id>karma</id>
+            <goals>
+              <goal>karma</goal>
+            </goals>
+          </execution>
         </executions>
       </plugin>
 
