@@ -21,15 +21,9 @@ var paths = {
   less: "./src/main/less/**/*.less"
 };
 
-function errorHandler(error) {
-  console.log(error.toString());
-  notify(error.toString());
-  this.emit('end');
-}
-
 gulp.task("js", function () {
   gulp.src(paths.jsPage)
-    .pipe(plumber())
+    .pipe(plumber(notify.onError("Error: <%= error.message%>")))
     .pipe(named())
     .pipe(webpackstream({
       output: {
@@ -51,7 +45,7 @@ gulp.task("js", function () {
 
 gulp.task("less", function () {
   gulp.src(paths.less)
-    .pipe(plumber(errorHandler))
+    .pipe(plumber(notify.onError("Error: <%= error.message%>")))
     .pipe(less())
     .pipe(gulp.dest(path.join(argv.dest, "css")));
 });
