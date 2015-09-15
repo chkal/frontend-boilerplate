@@ -26,6 +26,7 @@ gulp.task("js", function () {
     .pipe(plumber(notify.onError("Error: <%= error.message%>")))
     .pipe(named())
     .pipe(webpackstream({
+      bail: true,
       output: {
         filename: "[name].js"
       },
