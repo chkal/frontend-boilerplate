@@ -20,6 +20,7 @@
     "jasmine-core": "~2.3.4",
     "karma-jasmine": "~0.3.6",
     "karma-chrome-launcher": "~0.2.0",
-    "karma-babel-preprocessor": "~5.2.2"
+    "karma-babel-preprocessor": "~5.2.2",
+    "gulp-filter": "~3.0.1"
   }
 }

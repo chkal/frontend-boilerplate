@@ -10,6 +10,7 @@ var named = require("vinyl-named");
 var webpackstream = require("webpack-stream");
 var path = require("path");
 var plumber = require("gulp-plumber");
+var filter = require("gulp-filter");
 
 if (!argv.dest) {
   throw Error("Please use --dest to set a target directory");
@@ -17,13 +18,13 @@ if (!argv.dest) {
 
 var paths = {
   js: "./src/main/javascript/**/*.js",
-  jsEntry: "./src/main/javascript/**/*.entry.js",
   less: "./src/main/less/**/*.less"
 };
 
 gulp.task("js", function () {
-  gulp.src(paths.jsEntry)
+  gulp.src(paths.js)
     .pipe(plumber(notify.onError("Error: <%= error.message%>")))
+    .pipe(filter("*.entry.js"))
     .pipe(named())
     .pipe(webpackstream({
       bail: true,
