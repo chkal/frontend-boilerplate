@@ -1,4 +1,4 @@
-describe("Unit tests for Person calass", function () {
+describe("Unit tests for Person class", function () {
 
   it("Test default name", function () {
     const person = new Person();
