@@ -17,12 +17,12 @@ if (!argv.dest) {
 
 var paths = {
   js: "./src/main/javascript/**/*.js",
-  jsPage: "./src/main/javascript/page/**/*.js",
+  jsEntry: "./src/main/javascript/**/*.entry.js",
   less: "./src/main/less/**/*.less"
 };
 
 gulp.task("js", function () {
-  gulp.src(paths.jsPage)
+  gulp.src(paths.jsEntry)
     .pipe(plumber(notify.onError("Error: <%= error.message%>")))
     .pipe(named())
     .pipe(webpackstream({
@@ -37,9 +37,6 @@ gulp.task("js", function () {
           loader: "babel"
         }]
       }
-    }))
-    .pipe(rename(function (path) {
-      path.basename = path.basename.replace(/\.es6/, "");
     }))
     .pipe(gulp.dest(path.join(argv.dest, "js")));
 });
