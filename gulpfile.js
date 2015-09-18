@@ -18,6 +18,7 @@ if (!argv.dest) {
 
 var paths = {
   js: "./src/main/javascript/**/*.js",
+  hb: "./src/main/javascript/**/*.hb",
   less: "./src/main/less/**/*.less"
 };
 
@@ -54,6 +55,7 @@ gulp.task("less", function () {
 
 gulp.task("watch", function () {
   gulp.watch(paths.js, ["js"]);
+  gulp.watch(paths.hb, ["js"]);
   gulp.watch(paths.less, ["less"]);
 });
 
