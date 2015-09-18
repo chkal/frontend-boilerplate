@@ -36,6 +36,9 @@ gulp.task("js", function () {
         loaders: [{
           test: /\.js$/,
           loader: "babel"
+        }, {
+          test: /\.hb$/,
+          loader: "handlebars-loader"
         }]
       }
     }))

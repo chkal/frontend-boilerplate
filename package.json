@@ -21,6 +21,8 @@
     "karma-jasmine": "~0.3.6",
     "karma-chrome-launcher": "~0.2.0",
     "karma-babel-preprocessor": "~5.2.2",
-    "gulp-filter": "~3.0.1"
+    "gulp-filter": "~3.0.1",
+    "handlebars": "~4.0.2",
+    "handlebars-loader": "~1.1.4"
   }
 }

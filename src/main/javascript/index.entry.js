@@ -1,8 +1,10 @@
 import Person from "./lib/person.js";
+import template from "./template.hb";
 
 const person = new Person("Christian");
 
-const root = document.getElementById("root");
-root.textContent = person.greet();
+document.getElementById("root").innerHTML = template({
+  greeting: person.greet()
+});
 
 console.log("Done!");
