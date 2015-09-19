@@ -23,6 +23,7 @@
     "karma-babel-preprocessor": "~5.2.2",
     "gulp-filter": "~3.0.1",
     "handlebars": "~4.0.2",
-    "handlebars-loader": "~1.1.4"
+    "handlebars-loader": "~1.1.4",
+    "moment": "~2.10.6"
   }
 }
