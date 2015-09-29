@@ -25,8 +25,12 @@ var paths = {
 gulp.task("js", function () {
   gulp.src(paths.js)
     .pipe(plumber(notify.onError("Error: <%= error.message%>")))
-    .pipe(filter("*.entry.js"))
-    .pipe(named())
+    .pipe(filter("**/*.entry.js"))
+    .pipe(named(function(file) {
+      return file.path.substring(file.base.length)
+          .replace(/\//g, "-")
+          .replace(/\.entry\.js$/g, "");
+    }))
     .pipe(webpackstream({
       bail: true,
       output: {
