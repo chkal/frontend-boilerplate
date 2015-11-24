@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>de.chkal</groupId>
-  <artifactId>gulp-boilerplate</artifactId>
+  <artifactId>frontend-boilerplate</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>gulp-boilerplate</name>
+  <name>frontend-boilerplate</name>
 
   <properties>
     <!-- Will be changed by m2e profile if running from Eclipse -->
@@ -16,7 +16,7 @@
   </properties>
 
   <build>
-    <finalName>gulp-boilerplate</finalName>
+    <finalName>frontend-boilerplate</finalName>
     <plugins>
 
       <plugin>
