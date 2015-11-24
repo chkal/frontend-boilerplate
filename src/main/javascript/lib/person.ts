@@ -1,6 +1,8 @@
 export default class Person {
 
-  constructor(name = "NoName") {
+  name:string;
+
+  constructor(name:string = "Anonymous") {
     this.name = name;
   }
 

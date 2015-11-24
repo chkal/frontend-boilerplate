@@ -1,4 +1,4 @@
-import Person from "./lib/person.js";
+import Person from "./lib/person.ts";
 import template from "./template.hb";
 
 const person = new Person("Christian");

@@ -18,18 +18,20 @@ if (!argv.dest) {
 
 var paths = {
   js: "./src/main/javascript/**/*.js",
+  ts: "./src/main/javascript/**/*.ts",
   hb: "./src/main/javascript/**/*.hb",
   less: "./src/main/less/**/*.less"
 };
 
 gulp.task("js", function () {
-  gulp.src(paths.js)
+  gulp.src([paths.js, paths.ts, paths.hb])
     .pipe(plumber(notify.onError("Error: <%= error.message%>")))
-    .pipe(filter("**/*.entry.js"))
-    .pipe(named(function(file) {
+    .pipe(filter("**/*.entry.**"))
+    .pipe(named(function (file) {
+      // transforms 'mypage/index.entry.js' to 'mypage-index.js'
       return file.path.substring(file.base.length)
-          .replace(/\//g, "-")
-          .replace(/\.entry\.js$/g, "");
+        .replace(/\//g, "-")
+        .replace(/\.entry\.js$/g, "");
     }))
     .pipe(webpackstream({
       bail: true,
@@ -42,6 +44,10 @@ gulp.task("js", function () {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: "babel"
+        }, {
+          test: /\.ts$/,
+          exclude: /node_modules/,
+          loader: "ts-loader"
         }, {
           test: /\.hb$/,
           exclude: /node_modules/,
@@ -61,6 +67,7 @@ gulp.task("less", function () {
 
 gulp.task("watch", function () {
   gulp.watch(paths.js, ["js"]);
+  gulp.watch(paths.ts, ["js"]);
   gulp.watch(paths.hb, ["js"]);
   gulp.watch(paths.less, ["less"]);
 });
