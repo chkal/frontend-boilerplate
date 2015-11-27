@@ -4,5 +4,6 @@
     "sourceMap": true
   },
   "files": [
+    "node_modules/karma-typescript-preprocessor/typings/jasmine/jasmine.d.ts"
   ]
 }
