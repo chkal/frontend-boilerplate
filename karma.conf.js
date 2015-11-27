@@ -6,19 +6,31 @@ module.exports = function (config) {
     basePath: "",
     frameworks: ["jasmine"],
     files: [
-      "src/main/javascript/lib/**/*.js",
-      "src/test/javascript/**/*.js"
+      "src/test/javascript/**/*-spec.*"
     ],
     exclude: [],
     preprocessors: {
-      "src/main/javascript/**/*.js": ["babel"],
-      "src/test/javascript/**/*.js": ["babel"]
+      "src/test/javascript/**/*-spec.*": ["webpack"]
     },
-    babelPreprocessor: {
-      options: {
-        modules: "ignore"
+    webpack: {
+      module: {
+        loaders: [{
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: "babel"
+        }, {
+          test: /\.ts$/,
+          exclude: /node_modules/,
+          loader: "ts-loader"
+        }]
       }
     },
+    plugins: [
+      require("karma-jasmine"),
+      require("karma-webpack"),
+      require("karma-chrome-launcher"),
+      require("karma-phantomjs-launcher")
+    ],
     reporters: ["progress"],
     port: 9876,
     colors: true,
