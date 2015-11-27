@@ -51,12 +51,12 @@
             </goals>
           </execution>
           <execution>
-            <id>gulp</id>
+            <id>npm-run</id>
             <goals>
-              <goal>gulp</goal>
+              <goal>npm</goal>
             </goals>
             <configuration>
-              <arguments>default --dest ${gulp.dest}</arguments>
+              <arguments>run build</arguments>
             </configuration>
           </execution>
           <execution>
