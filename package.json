@@ -10,17 +10,16 @@
     "yargs": "3.24.0",
     "webpack": "1.12.1",
     "babel-loader": "5.3.2",
-    "karma": "~0.13.9",
-    "jasmine-core": "~2.3.4",
-    "karma-jasmine": "~0.3.6",
-    "karma-chrome-launcher": "~0.2.0",
-    "karma-babel-preprocessor": "~5.2.2",
+    "typescript": "~1.6.2",
+    "ts-loader": "~0.7.1",
     "handlebars": "~4.0.2",
     "handlebars-loader": "~1.1.4",
-    "phantomjs": "~1.9.18",
+    "jasmine-core": "~2.3.4",
+    "karma": "~0.13.9",
+    "karma-webpack": "~1.7.0",
+    "karma-jasmine": "~0.3.6",
+    "karma-chrome-launcher": "~0.2.0",
     "karma-phantomjs-launcher": "~0.2.1",
-    "ts-loader": "~0.7.1",
-    "typescript": "~1.6.2",
-    "karma-webpack": "~1.7.0"
+    "phantomjs": "~1.9.18"
   }
 }
