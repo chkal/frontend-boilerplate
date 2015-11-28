@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "webpack -p --dest target/${npm_package_name}",
-    "watch": "webpack -d --watch --dest target/${npm_package_name}"
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "webpack -p --dest target/${npm_package_name}",
+    "build:css": "lessc src/main/less/style.less target/${npm_package_name}/css/style.css",
+    "watch:js": "webpack -d --watch --dest target/${npm_package_name}"
   },
   "devDependencies": {
     "yargs": "3.24.0",
@@ -20,6 +22,7 @@
     "karma-jasmine": "~0.3.6",
     "karma-chrome-launcher": "~0.2.0",
     "karma-phantomjs-launcher": "~0.2.1",
-    "phantomjs": "~1.9.18"
+    "phantomjs": "~1.9.18",
+    "less": "~2.5.3"
   }
 }
