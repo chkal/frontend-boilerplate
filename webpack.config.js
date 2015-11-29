@@ -27,5 +27,13 @@ module.exports = {
       exclude: /node_modules/,
       loader: "handlebars-loader"
     }]
+  },
+  devServer: {
+    publicPath: "/js/",
+    proxy: {
+      "*": {
+        target: 'http://localhost:8080'
+      }
+    }
   }
 };

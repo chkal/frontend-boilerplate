@@ -7,7 +7,8 @@
     "build:js": "webpack -p --dest target/${npm_package_name}",
     "build:css": "lessc src/main/less/style.less target/${npm_package_name}/css/style.css",
     "watch:js": "webpack -d --watch --dest target/${npm_package_name}",
-    "watch:css": "onchange 'src/main/less/**' -- lessc --source-map-map-inline src/main/less/style.less target/${npm_package_name}/css/style.css"
+    "watch:css": "onchange 'src/main/less/**' -- lessc --source-map-map-inline src/main/less/style.less target/${npm_package_name}/css/style.css",
+    "dev-server": "webpack-dev-server --port 9999 --dest target/${npm_package_name}"
   },
   "devDependencies": {
     "yargs": "3.24.0",
@@ -25,6 +26,7 @@
     "karma-phantomjs-launcher": "~0.2.1",
     "phantomjs": "~1.9.18",
     "less": "~2.5.3",
-    "onchange": "~2.0.0"
+    "onchange": "~2.0.0",
+    "webpack-dev-server": "~1.14.0"
   }
 }
