@@ -1,8 +1,2 @@
 language: java
 jdk: oraclejdk8
-sudo: false
-cache:
-  directories:
-  - node
-  - node_modules
-  - $HOME/.m2/repository
