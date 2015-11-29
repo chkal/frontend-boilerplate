@@ -13,6 +13,12 @@ module.exports = function (config) {
       "src/test/javascript/**/*-spec.*": ["webpack"]
     },
     webpack: {
+      resolve: {
+        modulesDirectories: [
+          "node_modules",
+          "src/main/javascript"
+        ]
+      },
       module: {
         loaders: [{
           test: /\.js$/,

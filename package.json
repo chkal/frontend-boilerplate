@@ -6,6 +6,7 @@
     "build": "npm run build:js && npm run build:css",
     "build:js": "webpack -p --dest target/${npm_package_name}",
     "build:css": "lessc src/main/less/style.less target/${npm_package_name}/css/style.css",
+    "test": "karma start karma.conf.js",
     "watch:js": "webpack -d --watch --dest target/${npm_package_name}",
     "watch:css": "onchange 'src/main/less/**' -- lessc --source-map-map-inline src/main/less/style.less target/${npm_package_name}/css/style.css",
     "dev-server": "webpack-dev-server --port 9999 --dest target/${npm_package_name}"
