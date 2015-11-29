@@ -13,6 +13,12 @@ module.exports = {
     path: path.join(argv.dest, "js"),
     filename: "[name].js"
   },
+  resolve: {
+    modulesDirectories: [
+      "node_modules",
+      "src/main/javascript"
+    ]
+  },
   module: {
     loaders: [{
       test: /\.js$/,
