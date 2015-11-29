@@ -7,7 +7,7 @@ if (!argv.dest) {
 
 module.exports = {
   entry: {
-    index: "./src/main/javascript/index.entry.js"
+    index: "./src/main/javascript/index.js"
   },
   output: {
     path: path.join(argv.dest, "js"),
