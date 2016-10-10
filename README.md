@@ -8,7 +8,6 @@ The sample project demonstrates how to combine the following technologies
   * **Webpack**: The bundler for JavaScript and friends
   * **Babel**: Babel compiler for writing next generation JavaScript
   * **TypeScript**: The typed superset of JavaScript
-  * **Handlebars**: Simple and powerful templates for JavaScript
   * **Karma**: The spectacular Test Runner for JavaScript
   * **LESS**: CSS with dynamic behavior such as variables, mixins, operations and functions.
 
@@ -81,9 +80,9 @@ run the test manually by invoking:
 
     $ npm run test
 
-If you are actively working on the tests, you can also run Karam in watch
+If you are actively working on the tests, you can also run Karma in watch
 mode. In this mode the files will be automatically monitored for changes.
-As soon as you modify any of the JavaScript files, Karam will run all the
+As soon as you modify any of the JavaScript files, Karma will run all the
 tests which is usually very fast.
 
 Please note the Karma is configured to use PhantomJS by default. If you like
