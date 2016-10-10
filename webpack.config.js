@@ -16,15 +16,14 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: "babel"
+      loader: "babel",
+      query: {
+        presets: ["es2015", "es2016"]
+      }
     }, {
       test: /\.ts$/,
       exclude: /node_modules/,
       loader: "ts-loader"
-    }, {
-      test: /\.hb$/,
-      exclude: /node_modules/,
-      loader: "handlebars-loader"
     }]
   },
   devServer: {

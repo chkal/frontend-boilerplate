@@ -23,7 +23,10 @@ module.exports = function (config) {
         loaders: [{
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: "babel"
+          loader: "babel",
+          query: {
+            presets: ["es2015", "es2016"]
+          }
         }, {
           test: /\.ts$/,
           exclude: /node_modules/,
@@ -46,12 +49,16 @@ module.exports = function (config) {
     singleRun: true
   });
 
-  // call karma with --dev to enable watch mode
-  if (argv.dev) {
+  if (argv.watch) {
     config.set({
       autoWatch: true,
-      browsers: ["Chrome"],
       singleRun: false
+    });
+  }
+
+  if (argv.chrome) {
+    config.set({
+      browsers: ["Chrome"]
     });
   }
 
