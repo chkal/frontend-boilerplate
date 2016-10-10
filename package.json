@@ -4,13 +4,12 @@
   "private": true,
   "scripts": {
     "build": "npm run build:js && npm run build:css",
-    "build:js": "webpack -p --dest target/frontend-boilerplate",
-    "build:css": "lessc src/main/less/style.less target/frontend-boilerplate/css/style.css",
+    "build:js": "webpack -p",
+    "build:css": "lessc src/main/less/style.less target/generated-web-resources/css/style.css",
     "test": "karma start karma.conf.js",
-    "watch:js": "webpack -d --watch --dest target/frontend-boilerplate",
-    "watch:css": "onchange 'src/main/less/**' -- lessc --source-map-map-inline src/main/less/style.less target/frontend-boilerplate/css/style.css",
+    "watch:css": "onchange 'src/main/less/**' -- lessc --source-map-map-inline src/main/less/style.less target/generated-web-resources/css/style.css",
     "watch:karma": "karma start karma.conf.js --dev",
-    "dev-server": "webpack-dev-server --port 9999 --dest target/frontend-boilerplate"
+    "dev-server": "webpack-dev-server -d --host 0.0.0.0 --port 9999"
   },
   "devDependencies": {
     "yargs": "3.24.0",

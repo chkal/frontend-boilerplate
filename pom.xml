@@ -10,24 +10,20 @@
 
   <name>frontend-boilerplate</name>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
   <build>
     <finalName>frontend-boilerplate</finalName>
     <plugins>
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-
-      <plugin>
         <groupId>com.github.eirslett</groupId>
         <artifactId>frontend-maven-plugin</artifactId>
-        <version>0.0.26</version>
+        <version>1.0</version>
         <executions>
           <execution>
             <id>install-node-npm</id>
@@ -35,8 +31,8 @@
               <goal>install-node-and-npm</goal>
             </goals>
             <configuration>
-              <nodeVersion>v0.12.7</nodeVersion>
-              <npmVersion>1.4.9</npmVersion>
+              <nodeVersion>v4.5.0</nodeVersion>
+              <npmVersion>2.15.9</npmVersion>
             </configuration>
           </execution>
           <execution>
@@ -63,13 +59,27 @@
         </executions>
       </plugin>
 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <attachClasses>true</attachClasses>
+          <webResources>
+            <resource>
+              <directory>${project.build.directory}/generated-web-resources/</directory>
+              <filtering>false</filtering>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+
     </plugins>
 
   </build>
 
   <dependencies>
 
-    <!-- Servlet API -->
     <dependency>
       <groupId>org.jboss.spec.javax.servlet</groupId>
       <artifactId>jboss-servlet-api_3.1_spec</artifactId>

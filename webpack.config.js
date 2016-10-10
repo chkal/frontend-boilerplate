@@ -1,16 +1,9 @@
-var path = require("path");
-var argv = require('yargs').argv;
-
-if (!argv.dest) {
-  throw Error("Please use --dest to set a target directory");
-}
-
 module.exports = {
   entry: {
     index: "./src/main/javascript/index.js"
   },
   output: {
-    path: path.join(argv.dest, "js"),
+    path: "./target/generated-web-resources/js/",
     filename: "[name].js"
   },
   resolve: {
