@@ -2,7 +2,7 @@
 
 Boilerplate for Java projects with modern JavaScript tooling.
 
-The sample project demonstrates how to combine the following technologies
+The sample project demonstrates how to combine the following technologies:
 
   * **Maven**: The standard build system for Java projects
   * **Webpack**: The bundler for JavaScript and friends
@@ -12,13 +12,14 @@ The sample project demonstrates how to combine the following technologies
   * **LESS**: CSS with dynamic behavior such as variables, mixins, operations and functions.
 
 Please note that this project doesn't just show how to integrate those
-technologies. That's the easy part. :) The most important goal was to create
+technologies. That's the easy part. The most important goal was to create
 a great development experience.
 
 ## Maven build
 
 This project uses the [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin)
-to integrate with Maven. This great plugin does the following things for you:
+to integrate the JavaScript tooling with Maven. This great plugin does the following things 
+for you:
 
   * Install node.js and npm **locally** in the required versions
   * Executes Webpack for transpiling and and merging your JavaScript files
@@ -36,19 +37,6 @@ That means that you will get a standard WAR file if you want to.
 The project supports different development workflows. Most notably via
 automatic file watching and the webpack-dev-server.
 
-### LESS files
-
-You can watch your less files for modifications and automatically rebuild
-the CSS files by running:
-
-    $ npm run watch:css
-
-The transpiling is really fast. The file are copied to the correct folders
-so that reloading the page in your browser should show the results immediately.
-
-Please note that this may not work for Eclipse, because M2E is expecting
-the files in a different folder.
-
 ### JavaScript files
 
 The preferred way of transpiling the JavaScript files is to use the
@@ -61,7 +49,7 @@ demand.
 
 You can start the dev server simply by running:
 
-    $ npm run dev-server
+    $ _npm run dev-server
 
 This will start the dev server on port `9999`. This means that you have
 to use [http://localhost:9999/](http://localhost:9999/) instead of
@@ -78,12 +66,28 @@ debugging in the browser.
 The sample project uses Karma for running JavaScript tests. You can
 run the test manually by invoking:
 
-    $ npm run test
+    $ _npm run test
 
 If you are actively working on the tests, you can also run Karma in watch
 mode. In this mode the files will be automatically monitored for changes.
 As soon as you modify any of the JavaScript files, Karma will run all the
 tests which is usually very fast.
 
-Please note the Karma is configured to use PhantomJS by default. If you like
-you can also modify `karma.conf.js` to use a real Chrome browser instead.
+You can execute Karma in watch mode with:
+
+    $ _npm run watch:karma
+
+Please note the Karma is configured to use PhantomJS in standard mode and
+Google Chrome in watch mode. If you want to use PhantomJS in watch mode,
+just remove the `--chrome` option from the corresponding script entry
+in `package.json`.
+
+### LESS files
+
+You can watch your less files for modifications and automatically rebuild
+the CSS files by running:
+
+    $ _npm run watch:css
+
+The transpiling is really fast. The file are copied to the correct folders
+so that reloading the page in your browser should show the results immediately.
